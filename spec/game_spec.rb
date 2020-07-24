@@ -57,10 +57,10 @@ describe 'Tic tac toe' do
   describe Game do
     let(:player1) { Players.new('paul') }
     let(:player2) { Players.new('zay') }
-    let(:player_choice) { Choices.new }
+    let(:player_choice) { Choices.new } 
     let(:game_board) { Board.new(player1, player2) }
     let(:game) { Game.new(player1, player2, player_choice, game_board) }
-
+    player_choice.player_choice = 1
     describe '#initialize' do
       it 'should have all the arguments' do
         game
@@ -92,11 +92,8 @@ describe 'Tic tac toe' do
     end
 
     describe '#check_win' do
-      game_board.board[2]
-      game_board.board[5]
-      game_board.board[8]
       it 'should return true when there is a winning combination' do
-        expect(game.check_win).to eq(true)
+        expect(game.check_win).to eq(player_choice)
       end
     end
   end
