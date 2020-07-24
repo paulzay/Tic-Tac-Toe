@@ -54,23 +54,50 @@ describe 'Tic tac toe' do
     end
   end
 
-  # describe Game do
-  #   let (:bob) { Players.new({first_player_icon: "X", name: "bob"}) }
-  #   let (:frank) { Players.new({second_player_icon: "O", name: "frank"}) }
-  #   let (:game) { Game.new([bob, frank]) }
+  describe Game do
+    let(:player1) { Players.new('paul') }
+    let(:player2) { Players.new('zay') }
+    let(:player_choice) { Choices.new }
+    let(:game_board) { Board.new(player1, player2) }
+    let(:game) { Game.new(player1, player2, player_choice, game_board) }
 
-  #   context "#initialize" do
-  #     it "randomly selects a current_player" do
-  #       allow_any_instance_of(Array).to receive(:shuffle) { [frank, bob] }
-  #       game = Game.new([bob, frank])
-  #       expect(game.current_player).to eq frank
-  #     end
+    describe '#initialize' do
+      it 'should have all the arguments' do
+        game
+      end
+      it 'should set the initialize::Players ::choises ::game board' do
+        expect(game.player1.name).to eq('paul')
+        expect(game.player2.name).to eq('zay')
+      end
+    end
+    describe '#all_equal_p1' do
+      context 'when player_1 wins ' do
+        arr = %w[f f f]
+        player_icon = 'f'
+        it 'should check if player_1 wins' do
+          expect(game.all_equal_p1(arr, player_icon)).to_not eq(true)
+        end
+        it "should print  player_1's name wins! at the end" do
+          expect { game.all_equal_p1(arr, player_icon) }.to output(/wins!/).to_stdout
+        end
+      end
 
-  #     it "randomly selects an other player" do
-  #       allow_any_instance_of(Array).to receive(:shuffle) { [frank, bob] }
-  #       game = Game.new([bob, frank])
-  #       expect(game.other_player).to eq bob
-  #     end
-  #   end
-  # end
+      context 'when player_1 does not win should return nil ' do
+        arr = %w[f g g]
+        player_icon = 'f'
+        it 'should check if player_1 wins' do
+          expect(game.all_equal_p1(arr, player_icon)).to eq(nil)
+        end
+      end
+    end
+
+    describe '#check_win' do
+      game_board.board[2]
+      game_board.board[5]
+      game_board.board[8]
+      it 'should return true when there is a winning combination' do
+        expect(game.check_win).to eq(true)
+      end
+    end
+  end
 end
