@@ -92,16 +92,11 @@ describe 'Tic tac toe' do
     end
 
     describe '#a_draw' do
+      @@counter = 9
       it 'should print draw message when the game is a draw' do
-        game.@@counter = 9
-        @not_the_end = true
         expect{game.a_draw}.to output(/draw!/).to_stdout
       end
     end
-    # describe '#check_win' do
-    #   it 'should return true when there is a winning combination' do
-    #     expect(game.check_win).to eq(player_choice)
-    #   end
-    # end
+
   end
 end
