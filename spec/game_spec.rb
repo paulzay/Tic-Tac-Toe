@@ -11,7 +11,7 @@ describe 'Tic tac toe' do
         expect { initialize('paul') }.to_not raise_error
       end
 
-      it 'should set the instance variables @name, @slogan, and @student_capacity' do
+      it 'should set the instance variables @first_player_icon and @second_player_icon' do
         expect(players.instance_variable_get(:@first_player_icon)).to eq('X')
         expect(players.instance_variable_get(:@second_player_icon)).to eq('O')
       end
@@ -57,7 +57,7 @@ describe 'Tic tac toe' do
   describe Game do
     let(:player1) { Players.new('paul') }
     let(:player2) { Players.new('zay') }
-    let(:player_choice) { Choices.new } 
+    let(:player_choice) { Choices.new }
     let(:game_board) { Board.new(player1, player2) }
     let(:game) { Game.new(player1, player2, player_choice, game_board) }
     # player_choice.player_choice = 1
@@ -94,9 +94,8 @@ describe 'Tic tac toe' do
     describe '#a_draw' do
       @@counter = 9
       it 'should print draw message when the game is a draw' do
-        expect{game.a_draw}.to output(/draw!/).to_stdout
+        expect { game.a_draw }.to output(/draw!/).to_stdout
       end
     end
-
   end
 end
