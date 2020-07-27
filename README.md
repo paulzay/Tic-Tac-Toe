@@ -60,13 +60,24 @@ Clone and run this repository by running these commands on the terminal:
 - There are 8 winning combinations: Top row, Middle row, Bottom row, Left column, Middle column, Right column, Left diagonal, and Right diagonal.
 - There’s a draw/tie when the entire board is filled with X’s and O’s but no winning combinations can be found.
 
+
+## Testing 
+
+# install rspec on your local machine 
+$ gem install rspec
+
+# test the code using Rspec, run rspec from your comand line
+$ rspec
+
+
+
 ## ✒️ Authors <a name = "author"></a>
 
-👤 **Luciano Ilha**
+👤 **Vitalie Melnic**
 
-- Github: [@luciano-ilha](https://github.com/luciano-ilha)
-- Twitter: [@CarbonellIlha](https://twitter.com/CarbonellIlha)
-- Linkedin: [Luciano Ilha Carbonell](https://www.linkedin.com/in/luciano-ilha-carbonell-188115a0/)
+- Github: [@vmwhoami](https://github.com/vmwhoami)
+- Twitter: [@vmwhomai](https://twitter.com/vmwhoami)
+- Linkedin: [Vitalie Melnic](https://www.linkedin.com/in/vitalie-melnic-5802198a/)
 
 👤 **Paul Ogolla**
 
