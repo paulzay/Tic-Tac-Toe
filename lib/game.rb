@@ -1,14 +1,14 @@
 class Game
   attr_reader :player1, :player2, :game_board
   attr_accessor :player_choice, :not_the_end
-
+  @@counter = 0
   def initialize(player1, player2, player_choice, game_board)
     @player1 = player1
     @player2 = player2
     @player_choice = player_choice.player_choice
     @game_board = game_board
     @not_the_end = true
-    @@counter = 0
+    # @@counter = 0
   end
 
   def all_equal_p1(arr, player_icon)
