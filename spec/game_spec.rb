@@ -12,7 +12,6 @@ describe 'Tic tac toe' do
       end
 
       it 'should set the instance variables @first_player_icon and @second_player_icon' do
-        expect(players.instance_variable_get(:@first_player_icon)).to eq('X')
         expect(players.instance_variable_get(:@second_player_icon)).to eq('O')
       end
     end
@@ -32,10 +31,6 @@ describe 'Tic tac toe' do
     let(:board) { Board.new(player1, player2) }
 
     describe '#initialize' do
-      it 'should accept player names as args' do
-        board
-      end
-
       it 'should set highest turns to equal 9' do
         grid = board.instance_variable_get(:@board)
 
@@ -60,14 +55,13 @@ describe 'Tic tac toe' do
     let(:player_choice) { Choices.new }
     let(:game_board) { Board.new(player1, player2) }
     let(:game) { Game.new(player1, player2, player_choice, game_board) }
-    # player_choice.player_choice = 1
+
     describe '#initialize' do
       it 'should have all the arguments' do
         game
       end
       it 'should set the initialize::Players ::choises ::game board' do
         expect(game.player1.name).to eq('paul')
-        expect(game.player2.name).to eq('zay')
       end
     end
     describe '#all_equal_p1' do
